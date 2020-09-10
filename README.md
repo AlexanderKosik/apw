@@ -1,0 +1,2 @@
+# apw
+Aareal Python Week
