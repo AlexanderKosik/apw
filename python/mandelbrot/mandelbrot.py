@@ -2,8 +2,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-xvalues = np.linspace(-2.25, 0.75, 1000)
-yvalues = np.linspace(-1.5, 1.5, 1000)
+# xvalues = np.linspace(-2.25, 0.75, 1000)
+# yvalues = np.linspace(-1.5, 1.5, 1000)
+xvalues = np.linspace(-0.22, -0.21, 1000)
+yvalues = np.linspace(-0.70, -0.69, 1000)
 # size of these lists of x and y values
 xlen = len(xvalues)
 ylen = len(yvalues)
@@ -42,7 +44,8 @@ for ix in range(xlen):
         # now we know what c is for this place in the atlas, 
         # apply the mandel() function to return the number of iterations it took to diverge
         # we use 40 maximum iterations to stop and accept the function didn't 
-        atlas[ix,iy] = mandel(c,40)
+        atlas[ix,iy] = mandel(c,120)
+        # atlas[ix,iy] = mandel(c,40)
 
 # set the figure size
 # figsize(18,18)
