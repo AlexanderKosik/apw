@@ -7,6 +7,7 @@ import sys
 len_y = 30
 len_x = 90
 
+
 def print_board(b):
     os.system('cls')
     output = ""
@@ -62,33 +63,43 @@ def alive_neighbours(board, y, x):
 
     return alive_counter
 
+
+def alive_neighbours(board, y, x):
+    M, N = board.shape
+    total = int((board[y, (x-1)%N] + board[y, (x+1)%N] +
+    board[(y-1)%M, x] + board[(y+1)%M, x] +
+    board[(y-1)%M, (x-1)%N] + board[(y-1)%M, (x+1)%N] +
+    board[(y+1)%M, (x-1)%N] + board[(y+1)%M, (x+1)%N]))
+    return total
+
+
 def addGlider(i, j, board):
     """adds a glider with top-left cell at (i, j)"""
-    glider = np.array([[False, True, False],
-                       [False, False, True],
-                       [True, True, True]])
+    glider = np.array([[0, 1, 0],
+                       [0, 0, 1],
+                       [1, 1, 1]])
     board[i:i+3, j:j+3] = glider
 
+
 def init_random(board):
-    if not glider:
-        for y in range(len_y):
+    for y in range(len_y):
             for x in range(len_x):
                 board[y, x] = random.randint(0, 1)
-    else:
-        for y in range(len_y):
-            for x in range(len_x):
-                board[y, x] = random.randint(0, 0)
-        addGlider(5, 5, board)
-        
-    
+
+
 glider = False
 if __name__ == '__main__':
     if len(sys.argv) > 1:
         glider = sys.argv[1] == "--glider"
 
-    game_board = np.empty((len_y, len_x), dtype=bool)
-    new_board = np.empty((len_y, len_x), dtype=bool)
-    init_random(game_board)
+    game_board = np.zeros((len_y, len_x), dtype=int)
+    new_board = np.zeros((len_y, len_x), dtype=int)
+    
+    if not glider:
+        init_random(game_board)
+    else:
+        addGlider(5, 5, game_board)
+
     print_board(game_board)
 
     while True:
@@ -101,5 +112,3 @@ if __name__ == '__main__':
         print_board(new_board)
         game_board = new_board.copy()
         time.sleep(0.25)
-
-
