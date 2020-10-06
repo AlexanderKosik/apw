@@ -4,8 +4,26 @@
 Wie erstelle ich eine Liste?
 ----------------------------
 
+Hallo Alex. 
+
+Du weißt wohl nicht mehr, wie man eine Liste erstellt.
+Zum Glück habe ich das für die dokumentiert.
+Eine Liste in Python erstellt man mit []
+Bitte zukünftig merken.
+
+
 Welche Datentypen kann ich in eine Liste eintragen?
 ---------------------------------------------------
+
+In Listen in Python können unterschiedliche Datentypen eingetragen werden.
+
+Z.B.:
+
+- Integer
+- Float
+- String
+- Jeder andere Datentypen
+- ...
 
 Was ist eine List Comprehension und wie verwende ich diese?
 -----------------------------------------------------------

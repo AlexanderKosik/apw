@@ -17,6 +17,7 @@ Welcome to APW's documentation!
    fraktale.rst
    git.rst
    lists.rst
+   matrix.rst
    mentalmodel.rst
    rst.rst
    tuple.rst

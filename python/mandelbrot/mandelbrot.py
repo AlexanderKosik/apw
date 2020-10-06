@@ -26,7 +26,7 @@ def mandel(c, maxiter):
             break
 
     # return the number of iterations we actually did, not the final value of z, as this tells us how quickly the values diverged past the magnitude threshold of 4
-    return iteration
+    return int(iteration/4)
 
 # create an array of the right size to represent the atlas, we usethe number of items in xvalues and yvalues
 atlas = np.empty((xlen,ylen))
@@ -51,5 +51,5 @@ for ix in range(xlen):
 # figsize(18,18)
 # plot the array atlas as an image, with its values represented as colours, peculiarity of python that we have to transpose the array
 
-plt.imshow(atlas.T, interpolation="nearest")
+plt.imshow(atlas.T, interpolation="spline16")
 plt.show()
